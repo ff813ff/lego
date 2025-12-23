@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium LEGO Supplier | WhatsApp: +852 5441 0752</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.5;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 25px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0066cc;
+        }
+        
+        h1 {
+            color: #003366;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-btn i {
+            font-size: 1.2rem;
+        }
+        
+        .phone-number {
+            font-size: 1.1rem;
+            color: #0066cc;
+            font-weight: bold;
+            background-color: #f0f7ff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            border: 1px solid #cce0ff;
+        }
+        
+        /* Products Section */
+        .products-section {
+            flex-grow: 1;
+            margin-bottom: 30px;
+        }
+        
+        .products-title {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .product-item {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-image-container {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-item:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            font-size: 1.8rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .product-name {
+            font-size: 1.2rem;
+            color: #003366;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .product-series {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 5px;
+        }
+        
+        /* Image placeholder colors */
+        .placeholder-1 { background-color: #f5f5f5; }
+        .placeholder-2 { background-color: #f5f5f5; }
+        .placeholder-3 { background-color: #f5f5f5; }
+        .placeholder-4 { background-color: #f5f5f5; }
+        .placeholder-5 { background-color: #f5f5f5; }
+        .placeholder-6 { background-color: #f5f5f5; }
+        
+        /* More products section */
+        .more-products {
+            text-align: center;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #25D366;
+        }
+        
+        .more-products h3 {
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .more-products p {
+            color: #666;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Image Upload Guide */
+        .image-guide {
+            background-color: #fff9e6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            border-left: 5px solid #ffcc00;
+        }
+        
+        .image-guide h3 {
+            color: #b8860b;
+            margin-bottom: 10px;
+        }
+        
+        .image-guide ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .image-guide li {
+            margin-bottom: 8px;
+        }
+        
+        .code-example {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .product-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            z-index: 10;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .product-item {
+                padding: 0;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .page-container {
+                padding: 15px;
+            }
+            
+            .product-image-container {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Premium LEGO Supplier</h1>
+            <p class="subtitle">Authentic Products · Best Prices · Global Shipping · Wholesale Available</p>
+            
+            <div class="contact-info">
+                <a href="https://wa.me/85254410752?text=Hello,%20I'm%20interested%20in%20your%20LEGO%20products,%20please%20send%20more%20information." class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                </a>
+                <div class="phone-number">+852 5441 0752</div>
+            </div>
+        </div>
+        
+        <!-- Products Section -->
+        <div class="products-section">
+            <h2 class="products-title">Popular LEGO Collections</h2>
+            
+            <div class="products-grid">
+                <!-- PRODUCT 1: AT-AT -->
+                <div class="product-item">
+                    <div class="product-image-container placeholder-1">
+                        <div class="product-label">Product 1</div>
+                        <!-- PRODUCT 1: AT-AT STAR WARS -->
+                        <img src="https://img.cdn1.vip/i/694a2c389a2b3_1766468664.webp" alt="LEGO Star Wars AT-AT" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">LEGO Star Wars AT-AT</div>
+                        <div class="product-description">Ultimate Collector Series with 6785 pieces. Perfect replica from The Empire Strikes Back.</div>
+                        <div class="product-series">18+ | 75313 | 6785 pcs</div>
+                    </div>
+                </div>
+                
+                <!-- PRODUCT 2: TECHNIC -->
+                <div class="product-item">
+                    <div class="product-image-container placeholder-2">
+                        <div class="product-label">Product 2</div>
+                        <!-- PRODUCT 2: TECHNIC 1800系列 -->
+                        <img src="https://img.cdn1.vip/i/694a2c395841c_1766468665.webp" alt="LEGO Technic Series" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">LEGO Technic Series</div>
+                        <div class="product-description">Advanced mechanical models with 3893 pieces. Complex engineering for adult builders.</div>
+                        <div class="product-series">18+ | 42772 | 3893 pcs</div>
+                    </div>
+                </div>
+                
+                <!-- PRODUCT 3: BUGATTI -->
+                <div class="product-item">
+                    <div class="product-image-container placeholder-3">
+                        <div class="product-label">Product 3</div>
+                        <!-- PRODUCT 3: BUGATTI TECHNIC系列 -->
+                        <img src="https://img.cdn1.vip/i/694a2c3929415_1766468665.webp" alt="LEGO Bugatti Chiron" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">LEGO Bugatti Chiron</div>
+                        <div class="product-description">Detailed replica of Bugatti supercar with functional W16 engine and adjustable rear wing.</div>
+                        <div class="product-series">Technic | 3599 pcs</div>
+                    </div>
+                </div>
+                
+                <!-- PRODUCT 4: Millennium Falcon -->
+                <div class="product-item">
+                    <div class="product-image-container placeholder-4">
+                        <div class="product-label">Product 4</div>
+                        <!-- PRODUCT 4: Millennium Falcon STAR WARS -->
+                        <img src="https://img.cdn1.vip/i/694a2c39b000a_1766468665.webp" alt="LEGO Millennium Falcon" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">LEGO Millennium Falcon</div>
+                        <div class="product-description">The largest LEGO set ever with detailed interior. The most famous ship in Star Wars.</div>
+                        <div class="product-series">16+ | 75192 | 7541 pcs</div>
+                    </div>
+                </div>
+                
+                <!-- PRODUCT 5: Star Destroyer -->
+                <div class="product-item">
+                    <div class="product-image-container placeholder-5">
+                        <div class="product-label">Product 5</div>
+                        <!-- PRODUCT 5: Star Destroyer STAR WARS (已更新图片) -->
+                        <img src="https://telegraph-image-92x.pages.dev/file/3d608072758d355c8f8c9-09d6551138e8b2ded6.jpg" alt="LEGO Imperial Star Destroyer" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">LEGO Imperial Star Destroyer</div>
+                        <div class="product-description">Massive Imperial Star Destroyer model. Iconic symbol of the Galactic Empire's might.</div>
+                        <div class="product-series">16+ | 7532 | 4784 pcs</div>
+                    </div>
+                </div>
+                
+                <!-- PRODUCT 6: SISO RECON -->
+                <div class="product-item">
+                    <div class="product-image-container placeholder-6">
+                        <div class="product-label">Product 6</div>
+                        <!-- PRODUCT 6: SISO RECON C800 TECHNIC (已更新图片) -->
+                        <img src="https://telegraph-image-92x.pages.dev/file/1bd9b63ee3514f2e0f354-142ab21786866b3d75.jpg" alt="LEGO Technic C800 Recon" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">LEGO Technic C800 Recon</div>
+                        <div class="product-description">Advanced reconnaissance vehicle with 3696 pieces. Complex mechanical functions.</div>
+                        <div class="product-series">18+ | 4215 | 3696 pcs</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- More products section -->
+            <div class="more-products">
+                <h3>More Products Available on WhatsApp</h3>
+                <p>We have over 100+ LEGO sets including latest releases, exclusive editions, and retired sets. Contact us for full catalog and wholesale prices.</p>
+                <a href="https://wa.me/85254410752?text=Hello,%20please%20send%20me%20your%20full%20LEGO%20product%20catalog%20and%20price%20list." class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Get Full Product Catalog
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2023 Premium LEGO Supplier | Authorized Distributor</p>
+            <p style="margin-top: 5px; font-size: 0.9rem;">WhatsApp: +852 5441 0752 | Available 24/7</p>
+        </div>
+    </div>
+</body>
+</html>
