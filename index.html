@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +12,21 @@
       gtag('js', new Date());
       gtag('config', 'G-00943XZ290');
     </script>
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@LEGO_Supplier">
+    <meta name="twitter:title" content="Premium LEGO Supplier | WhatsApp: +852 5441 0752">
+    <meta name="twitter:description" content="Authentic LEGO products at wholesale prices. Star Wars, Technic, Bugatti, Millennium Falcon and more. Global shipping available.">
+    <meta name="twitter:image" content="https://img.cdn1.vip/i/694a2c389a2b3_1766468664.webp">
+    <meta name="twitter:creator" content="@LEGO_Supplier">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Premium LEGO Supplier | WhatsApp: +852 5441 0752">
+    <meta property="og:description" content="Authentic LEGO products at wholesale prices. Star Wars, Technic, Bugatti, Millennium Falcon and more. Global shipping available.">
+    <meta property="og:image" content="https://img.cdn1.vip/i/694a2c389a2b3_1766468664.webp">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:type" content="website">
     
     <title>Premium LEGO Supplier | WhatsApp: +852 5441 0752</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -240,6 +257,7 @@
             padding: 20px;
             margin-top: 30px;
             border-left: 5px solid #ffcc00;
+            display: none; /* 隐藏指南，因为我们不需要了 */
         }
         
         .image-guide h3 {
@@ -448,5 +466,108 @@
             <p style="margin-top: 5px; font-size: 0.9rem;">WhatsApp: +852 5441 0752 | Available 24/7</p>
         </div>
     </div>
+    
+    <!-- URL关键词堆砌支持脚本 -->
+    <script>
+    // URL关键词堆砌支持
+    // 这个脚本确保无论URL中包含什么关键词，页面都能正常显示
+    (function() {
+        // 保存原始的页面标题
+        const originalTitle = document.title;
+        
+        // 捕获URL参数但不影响页面显示
+        function captureURLKeywords() {
+            // 获取当前URL
+            const currentURL = window.location.href;
+            
+            // 获取URL路径和查询参数
+            const urlPath = window.location.pathname;
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // 提取可能的URL关键词（仅用于分析，不影响页面）
+            const urlKeywords = [];
+            
+            // 从URL路径中提取关键词（例如：/lego-star-wars-supplier.html）
+            if (urlPath) {
+                // 移除扩展名和斜杠
+                const pathWithoutExt = urlPath.replace(/\.[^/.]+$/, "").replace(/\//g, ' ');
+                // 分割单词
+                const pathKeywords = pathWithoutExt.split(/[-_]/).filter(word => word.length > 0);
+                urlKeywords.push(...pathKeywords);
+            }
+            
+            // 从查询参数中提取关键词（例如：?keyword=lego+star+wars）
+            urlParams.forEach((value, key) => {
+                if (value) {
+                    const paramKeywords = value.split(/[+ ]/).filter(word => word.length > 0);
+                    urlKeywords.push(...paramKeywords);
+                }
+            });
+            
+            // 记录URL关键词（可用于分析，但不会影响页面显示）
+            if (urlKeywords.length > 0) {
+                console.log('URL关键词检测:', urlKeywords.join(', '));
+                
+                // 可选：轻微调整页面标题以反映URL关键词（不会影响用户体验）
+                // 这里只是示例，您可以根据需要启用或禁用
+                /*
+                if (urlKeywords.length > 0 && urlKeywords.length < 5) {
+                    const keywordString = urlKeywords.slice(0, 3).join(' ') + ' - ';
+                    document.title = keywordString + originalTitle;
+                }
+                */
+            }
+            
+            return urlKeywords;
+        }
+        
+        // 处理所有链接，确保它们保持相同的URL结构
+        function processLinks() {
+            const allLinks = document.querySelectorAll('a');
+            allLinks.forEach(link => {
+                // 跳过外部链接和特殊链接（如WhatsApp链接）
+                if (link.href.includes('wa.me') || 
+                    link.href.includes('whatsapp.com') ||
+                    link.target === '_blank' ||
+                    link.href.startsWith('http') && !link.href.includes(window.location.hostname)) {
+                    return;
+                }
+                
+                // 对于内部链接，可以添加当前URL的关键词参数以保持一致性
+                // 这里只是示例，您可以根据需要实现
+            });
+        }
+        
+        // 初始化函数
+        function initURLKeywordSupport() {
+            // 捕获URL关键词
+            const detectedKeywords = captureURLKeywords();
+            
+            // 处理页面链接
+            processLinks();
+            
+            // 可选：将关键词存储在本地，供后续使用
+            if (detectedKeywords.length > 0) {
+                sessionStorage.setItem('urlKeywords', JSON.stringify(detectedKeywords));
+            }
+            
+            // 确保页面正常显示，无论URL是什么
+            console.log('URL关键词堆砌支持已启用，页面正常显示。');
+        }
+        
+        // 页面加载完成后初始化
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initURLKeywordSupport);
+        } else {
+            initURLKeywordSupport();
+        }
+        
+        // 添加错误处理，确保即使有错误页面也能正常显示
+        window.addEventListener('error', function(e) {
+            console.warn('页面出现错误，但已捕获并确保页面正常显示:', e.message);
+            return true;
+        });
+    })();
+    </script>
 </body>
 </html>
